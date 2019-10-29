@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no">
+    <title>珠峰培训-REACT</title>
+</head>
+<body>
+<!--把REM计算放到BODY头部，目的是为了保证CSS导入后才执行这段JS（不写在INDEX中而是写在页面中，就是为了保证这段程序加载速度快一些，没必要等到合并后的JS加载，先把样式处理了）-->
+<script>
+    ;(function () {
+        function computed() {
+            let HTML = document.documentElement,
+                winW = HTML.clientWidth,
+                desW = 750;
+            if (winW >= desW) {
+                HTML.style.fontSize = 100 + 'px';
+                return;
+            }
+            HTML.style.fontSize = winW / 750 * 100 + 'px';
+        }
+
+        computed();
+        window.addEventListener('resize', computed, false);
+    })();
+</script>
+<div id="root"></div>
+</body>
+</html>
